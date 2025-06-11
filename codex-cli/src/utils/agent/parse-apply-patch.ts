@@ -74,7 +74,6 @@ export function parseApplyPatch(patch: string): Array<ApplyPatchOp> | null {
       ops.push({
         type: "update",
         path: line.slice(UPDATE_FILE_PREFIX.length).trim(),
-        newPath: undefined,
         update: "",
         added: 0,
         deleted: 0,
