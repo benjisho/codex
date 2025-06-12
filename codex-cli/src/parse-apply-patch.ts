@@ -82,7 +82,7 @@ export function parseApplyPatch(patch: string): Array<ApplyPatchOp> | null {
       continue;
     } else if (line.startsWith(MOVE_FILE_TO_PREFIX)) {
       const lastOp = ops[ops.length - 1];
-      if (lastOp?.type !== "update" || lastOp.update) {
+      if (lastOp?.type !== "update" || lastOp.update.length > 0) {
         return null;
       }
       lastOp.newPath = line.slice(MOVE_FILE_TO_PREFIX.length).trim();
